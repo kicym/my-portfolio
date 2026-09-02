@@ -8,6 +8,7 @@ export default defineConfig({
       },
     }),
   ],
+    base: '/my-portfolio/',
   resolve: {
     alias: {
       "@": "/src",

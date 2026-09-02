@@ -10,13 +10,13 @@ import {Contact} from "./layout/sections/contacts/Contacts";
 import {Slogan} from "./layout/sections/slogan/Slogan";
 import {Footer} from "./layout/footer/Footer";
 import {GoTopBtn} from "./components/goTopBtn/GoTopBtn.tsx";
-// import {Particle} from "./components/particles/Particle.tsx";
+
 
 
 function App() {
     return (
         <div className="App">
-            {/*<Particle/>*/}
+
             <Header/>
             <Main/>
             <Skills/>

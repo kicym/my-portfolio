@@ -7,12 +7,14 @@ import {FlexWrapper} from "../../../components/FlexWrapper.ts";
 import {Container} from "../../../components/Container.ts";
 import {S} from "../skills/Skills_Styles.ts"
 import React from "react";
+import {useTranslation} from "react-i18next";
 
 export const Testimony:React.FC = () => {
+    const { t } = useTranslation();
     return (
         <StyledTestimony id={"testimony"}>
             <Container>
-                <SectionTitle>Testimony</SectionTitle>
+                <SectionTitle>{t('testimony.mainTitle')}</SectionTitle>
                 <FlexWrapper direction={"column"} align={"center"}>
                     <S.IconWrapper>
                         <Icon iconId={"quote-alt-right"}/>

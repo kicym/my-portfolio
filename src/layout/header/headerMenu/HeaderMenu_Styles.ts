@@ -108,11 +108,11 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
 
     ${props => props.isOpen && css<{ isOpen: boolean }>`
         transform: translateY(0);
-        
+
         & ul {
             gap: 30px;
         }
-        
+
     `}
 `
 
@@ -178,7 +178,7 @@ const DesktopMenu = styled.nav`
     justify-content: center;
   }
 
- 
+
 `
 
 
@@ -192,3 +192,4 @@ export const S = {
     BurgerButton,
     DesktopMenu
 }
+

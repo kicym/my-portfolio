@@ -3,6 +3,7 @@ import {Icon} from "../../components/icon/Icon";
 import {FlexWrapper} from "../../components/FlexWrapper.ts";
 import React from "react";
 import {S} from "./Footer_Styles.ts"
+import {useTranslation} from "react-i18next";
 
 const socialItemsData = [
     {
@@ -20,11 +21,12 @@ const socialItemsData = [
 ]
 
 export const Footer: React.FC = () => {
+    const { t } = useTranslation();
     return (
         <S.Footer>
 
             <FlexWrapper direction={"column"} align={"center"}>
-                <S.Name>Raman</S.Name>
+                <S.Name>{t('footer.name')}</S.Name>
                 <S.SocialList>
 
                     {socialItemsData.map((s, index) => {
@@ -36,7 +38,7 @@ export const Footer: React.FC = () => {
                     })}
 
                 </S.SocialList>
-                <S.Copyright>© 2023 Raman Navumau, All Rights Reserved.</S.Copyright>
+                <S.Copyright>© 2026 {t('footer.name')}, {t('footer.rights')}.</S.Copyright>
             </FlexWrapper>
 
         </S.Footer>

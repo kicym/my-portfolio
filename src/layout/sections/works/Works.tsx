@@ -8,56 +8,49 @@ import timerImg from './../../../assets/images/img-2.webp'
 import {Container} from "../../../components/Container.ts";
 import {S} from "./Works_Styles.ts"
 import {AnimatePresence, motion} from "framer-motion";
+import {useTranslation} from "react-i18next";
 
 
-const tabsItems: Array<{ status: TabsStatusType, title: string }> = [
-    {
-        title: "All",
-        status: "all"
-    },
-    {
-        title: "landing page",
-        status: "landing"
-    },
-    {
-        title: "React",
-        status: "react"
-    },
-    {
-        title: "spa",
-        status: "spa"
-    },
 
+const tabsItems: Array<{ status: TabsStatusType }> = [
+    { status: "all" },
+    { status: "landing" },
+    { status: "react" },
+    { status: "spa" },
 ]
+
 
 const worksData = [
     {
-        tittle: "Social Network",
+        projKey: "socialNetwork",
         src: socialImg,
-        text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
         type: "spa",
         id: 1
-
     },
     {
-        tittle: "Timer",
+        projKey: "timer",
         src: timerImg,
-        text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit  ut labore et dolore magna aliqua Ut enim",
         type: "react",
         id: 2
     },
-
 ]
 
 export const Works: React.FC = () => {
+    const { t } = useTranslation();
+
 
     const [currentFilterStatus, setCurrentFilterStatus] = useState("all")
+
+    const translatedTabsItems = tabsItems.map(item => ({
+        status: item.status,
+        title: t(`works.tabs.${item.status}`) // Ищет ключи 'works.tabs.all', 'works.tabs.landing' и т.д.
+    }));
+
     let filteredWorks = worksData
 
     if (currentFilterStatus === "landing") {
         filteredWorks = worksData.filter(work => work.type === "landing")
     }
-
     if (currentFilterStatus === "react") {
         filteredWorks = worksData.filter(work => work.type === "react")
     }
@@ -72,8 +65,8 @@ export const Works: React.FC = () => {
     return (
         <S.Works id={"works"}>
             <Container>
-                <SectionTitle>My Works</SectionTitle>
-                <TabMenu tabsItems={tabsItems}
+                <SectionTitle>{t('works.mainTitle')}</SectionTitle>
+                <TabMenu tabsItems={translatedTabsItems}
                          changeFilterStatus={changeFilterStatus}
                          currentFilterStatus={currentFilterStatus}/>
                 <FlexWrapper justify={"space-between"} align={"flex-start"} wrap={"wrap"}>
@@ -87,9 +80,9 @@ export const Works: React.FC = () => {
                                     exit={{opacity: 0}}
                                     key={w.id}
                                 >
-                                    <Work tittle={w.tittle}
+                                    <Work tittle={t(`works.projects.${w.projKey}.title`)}
                                           src={w.src}
-                                          text={w.text}
+                                          text={t(`works.projects.${w.projKey}.text`)}
                                           key={w.id}
                                     />
                                 </motion.div>

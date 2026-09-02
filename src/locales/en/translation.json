@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "home": "Home",
+    "skills": "Skills",
+    "works": "Works",
+    "testimony": "Testimony",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi There",
+    "intro": "I am",
+    "name": "RAMAN NAVUMAU",
+    "role1": "A Web Developer.",
+    "role2": "A Frontend Developer."
+  },
+  "skills": {
+    "mainTitle": "My Skills",
+    "descriptions": {
+      "html5": "Semantic layout, accessibility (a11y), and SEO-friendly structural web pages.",
+      "css": "Responsive layouts using Flexbox/Grid, animations, and modern styling techniques.",
+      "react": "Building modern SPAs with component-driven architecture and effective state management.",
+      "typescript": "Adding strong static typing to avoid errors and write predictable JavaScript code.",
+      "styledComponents": "Component-level styling using CSS-in-JS for scalable and clean architectures.",
+      "webDesign": "Creating user-friendly, responsive, and visually appealing interfaces."
+    }
+  },
+  "works": {
+    "mainTitle": "My Works",
+    "tabs": {
+      "all": "All",
+      "landing": "Landing Page",
+      "react": "React",
+      "spa": "SPA"
+    },
+    "projects": {
+      "socialNetwork": {
+        "title": "Social Network",
+        "text": "A full-featured social media platform with messaging, profiles, and post feeds."
+      },
+      "timer": {
+        "title": "Countdown Timer",
+        "text": "An interactive timer application featuring precise interval tracking and clean UI."
+      }
+    },
+    "buttons": {
+      "viewProject": "View Project"
+    }
+  },
+  "testimony": {
+    "mainTitle": "Testimony",
+    "reviews": {
+      "user1": "Raman is an exceptional developer. He delivered the project on time and the code quality was top-notch. Highly recommended!",
+      "user2": "Great communication and great results. He quickly understood our requirements and implemented them perfectly.",
+      "user3": "Very professional and skilled in React and TypeScript. He helped us optimize our application performance significantly."
+    }
+  },
+  "contacts": {
+    "mainTitle": "Contact",
+    "placeholders": {
+      "name": "Name",
+      "subject": "Subject",
+      "message": "Message"
+    },
+    "buttons": {
+      "send": "Send message"
+    }
+  },
+  "footer": {
+    "name": "Raman Navumau",
+    "rights": "All Rights Reserved"
+  },
+  "slogan": {
+    "title": "I Am Available For Freelance",
+    "button": "Hire me"
+  }
+}
+

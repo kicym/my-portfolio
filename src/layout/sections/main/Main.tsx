@@ -5,21 +5,22 @@ import {Container} from "../../../components/Container.ts";
 import {S} from "./Menu_Styles.ts"
 import Typewriter from 'typewriter-effect';
 import Tilt from 'react-parallax-tilt';
+import { useTranslation } from 'react-i18next';
 
 export const Main: React.FC = () => {
+    const { t } = useTranslation();
     return (
         <S.Main id={"home"}>
             <Container>
                 <FlexWrapper align={"center"} justify={"space-around"} wrap={"wrap"}>
                     <div>
-                        <S.SmallText>Hi There</S.SmallText>
-                        <S.Name>I am <span>RAMAN NAVUMAU</span></S.Name>
-                        {/*<S.MainTittle>A Web Developer</S.MainTittle>*/}
+                        <S.SmallText>{t('hero.greeting')}</S.SmallText>
+                        <S.Name>{t('hero.intro')} <span>{t('hero.name')}</span></S.Name>
                         <S.MainTittle>
-                            <p>A Web Developer.</p>
+                            <p>{t('hero.role1')}</p>
                             <Typewriter
                                 options={{
-                                    strings: ['A Web Developer', 'A Frontend Developer'],
+                                    strings: [t('hero.role1'), t('hero.role2')],
                                     autoStart: true,
                                     loop: true,
                                     delay: 150

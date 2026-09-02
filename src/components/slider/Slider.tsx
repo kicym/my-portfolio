@@ -3,6 +3,7 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { S } from "./Slider_Styles";
 import "./../../styles/slider.css"
+import { useTranslation } from "react-i18next";
 
 
 type SlidePropsType = {
@@ -23,23 +24,32 @@ const Slide = (props: SlidePropsType) => {
     )
 }
 
-const items = [
-   <Slide userName={"ivan ivanow"}
-          text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit."}/>,
-   <Slide userName={"piotr petrov"}
-          text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit."}/>,
-   <Slide userName={"igor igorev"}
-          text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit."}/>
+const slidesData = [
+    { userName: "ivan ivanow", reviewKey: "user1" },
+    { userName: "piotr petrov", reviewKey: "user2" },
+    { userName: "igor igorev", reviewKey: "user3" }
 ];
 
-export const Slider = () => (
 
-    <S.Slider>
-        <AliceCarousel
-            mouseTracking
-            items={items}
+export const Slider = () => {
+    const { t, i18n } = useTranslation();
+
+    // Генерируем слайды внутри компонента, чтобы они реагировали на смену языка
+    const items = slidesData.map((slide, index) => (
+        <Slide
+            key={index}
+            userName={slide.userName}
+            text={t(`testimony.reviews.${slide.reviewKey}`)}
         />
-    </S.Slider>
+    ));
 
-);
-
+    return (
+        <S.Slider>
+            <AliceCarousel
+                key={i18n.language}
+                mouseTracking
+                items={items}
+            />
+        </S.Slider>
+    );
+};
